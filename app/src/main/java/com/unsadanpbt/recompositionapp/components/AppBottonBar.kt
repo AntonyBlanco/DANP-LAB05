@@ -10,14 +10,25 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavController
 import com.unsadanpbt.recompositionapp.R
+import androidx.navigation.compose.currentBackStackEntryAsState
+import com.unsadanpbt.recompositionapp.navigation.Routes
 
 @Composable
-fun AppBottonBar () {
+fun AppBottonBar (
+    navController: NavController
+) {
+    val navBackStackEntry = navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry.value?.destination?.route
+
     NavigationBar() {
         NavigationBarItem(
-            selected = true,
-            onClick = {},
+            //selected = true,
+            selected = currentRoute == Routes.home_screen,
+            onClick = {
+                navController.navigate(Routes.home_screen)
+            },
             icon = {
                 /*Icon(
                     Icons.Default.Home,
@@ -27,11 +38,17 @@ fun AppBottonBar () {
                     painter = painterResource(id = R.drawable.ic_home),
                     contentDescription = null
                 )
+            },
+            label = {
+                Text("Home")
             }
         )
         NavigationBarItem(
-            selected = false,
-            onClick = {},
+            //selected = false,
+            selected = currentRoute == Routes.cart_screen,
+            onClick = {
+                navController.navigate(Routes.cart_screen)
+            },
             icon = {
                 /*Icon(
                     Icons.Default.ShoppingCart,
@@ -43,7 +60,7 @@ fun AppBottonBar () {
                 )
             },
             label = {
-                Text("Carrito")
+                Text("Cart")
             }
         )
     }
