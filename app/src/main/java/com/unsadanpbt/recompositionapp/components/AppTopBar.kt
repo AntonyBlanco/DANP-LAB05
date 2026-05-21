@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 fun AppTopBar () {
     TopAppBar(
         title = {
-            Text("SmartMarket")
+            Text("MikaStore")
         }
     )
 }

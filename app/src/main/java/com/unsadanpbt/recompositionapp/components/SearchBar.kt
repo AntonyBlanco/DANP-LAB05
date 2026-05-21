@@ -14,7 +14,7 @@ fun SearchBar (
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        modifier = Modifier,
+        modifier = modifier,
         label = {
             Text("Buscar producto")
         }

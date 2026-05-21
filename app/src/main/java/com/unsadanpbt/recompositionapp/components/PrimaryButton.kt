@@ -15,7 +15,7 @@ fun PrimaryButton (
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier
     ){
         Text(text)
     }

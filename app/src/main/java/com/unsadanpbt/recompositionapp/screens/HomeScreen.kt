@@ -1,54 +1,58 @@
 package com.unsadanpbt.recompositionapp.screens
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.unsadanpbt.recompositionapp.components.PrimaryButton
 import com.unsadanpbt.recompositionapp.components.ProductList
 import com.unsadanpbt.recompositionapp.components.SearchBar
 import com.unsadanpbt.recompositionapp.singleton.AppSingleton
 
 @Composable
-fun HomeScreen () {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ){
-        SearchBar(
-            value = "Buscar productos",
-            onValueChange = {},
-            modifier = Modifier.weight(1f)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        PrimaryButton(
-            text = "Buscar",
-            onClick = {},
-            modifier = Modifier.wrapContentWidth()
-        )
+fun HomeScreen(
+    navController: NavController
+) {
+
+    var search by remember {
+        mutableStateOf("")
     }
-    Spacer(modifier = Modifier.width(16.dp))
 
-    ProductList(
-        productos = AppSingleton.productos
-    )
-}
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
 
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    Column {
-        HomeScreen()
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            SearchBar(
+                value = search,
+                onValueChange = {
+                    search = it
+                },
+                modifier = Modifier.weight(1f)
+            )
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            PrimaryButton(
+                text = "Buscar",
+                onClick = {},
+                modifier = Modifier.wrapContentWidth()
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        ProductList(
+            productos = AppSingleton.productos,
+            navController = navController
+        )
     }
 }
