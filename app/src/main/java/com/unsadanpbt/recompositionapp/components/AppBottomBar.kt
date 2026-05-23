@@ -16,7 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.unsadanpbt.recompositionapp.navigation.Routes
 
 @Composable
-fun AppBottonBar (
+fun AppBottomBar (
     navController: NavController
 ) {
     val navBackStackEntry = navController.currentBackStackEntryAsState()

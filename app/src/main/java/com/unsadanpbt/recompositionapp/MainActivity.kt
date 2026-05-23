@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import com.unsadanpbt.recompositionapp.components.AppBottonBar
+import com.unsadanpbt.recompositionapp.components.AppBottomBar
 import com.unsadanpbt.recompositionapp.components.AppTopBar
 import com.unsadanpbt.recompositionapp.navigation.AppNavigation
 import com.unsadanpbt.recompositionapp.screens.HomeScreen
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
                 Scaffold(
                     topBar = { AppTopBar() },
-                    bottomBar = { AppBottonBar(navController) },
+                    bottomBar = { AppBottomBar(navController) },
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
                     Column(
@@ -55,7 +55,7 @@ fun HomeScreenPreview() {
     val navController = rememberNavController()
     Scaffold(
         topBar = { AppTopBar() },
-        bottomBar = { AppBottonBar(navController) },
+        bottomBar = { AppBottomBar(navController) },
     ) { innerPadding ->
 
         Column(
