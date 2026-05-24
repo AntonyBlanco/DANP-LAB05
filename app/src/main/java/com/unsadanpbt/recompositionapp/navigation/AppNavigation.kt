@@ -40,6 +40,10 @@ fun AppNavigation(
             CartScreen(navController)
         }
 
+        composable(Routes.payment_screen) {
+            PaymentScreen(navController)
+        }
+
         composable(Routes.extra_screen) {
             CheckoutScreen()
         }

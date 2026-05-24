@@ -55,7 +55,7 @@ fun CartScreen(
 
         Button(
             onClick = {
-                navController.navigate(Routes.extra_screen)
+                navController.navigate(Routes.payment_screen)
             },
             modifier = Modifier.fillMaxWidth()
         ) {
