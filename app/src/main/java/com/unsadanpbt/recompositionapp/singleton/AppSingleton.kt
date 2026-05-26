@@ -1,11 +1,6 @@
 package com.unsadanpbt.recompositionapp.singleton
 
-data class Product(
-    val id: Int,
-    val nombre: String,
-    val precio: Double,
-    val descripcion: String
-)
+import com.unsadanpbt.recompositionapp.data.entities.Product
 
 object AppSingleton {
 
