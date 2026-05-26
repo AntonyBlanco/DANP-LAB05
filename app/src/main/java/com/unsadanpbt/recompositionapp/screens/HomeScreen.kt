@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import com.unsadanpbt.recompositionapp.components.PrimaryButton
 import com.unsadanpbt.recompositionapp.components.ProductList
 import com.unsadanpbt.recompositionapp.components.SearchBar
-import com.unsadanpbt.recompositionapp.singleton.AppSingleton
+import com.unsadanpbt.recompositionapp.data.repository.ProductRepository
 
 @Composable
 fun HomeScreen(
@@ -51,7 +51,7 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         ProductList(
-            productos = AppSingleton.productos,
+            productos = ProductRepository.getProducts(),
             navController = navController
         )
     }
